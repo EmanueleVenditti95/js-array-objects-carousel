@@ -58,22 +58,12 @@ document.getElementById('button-right').addEventListener("click", changePictureR
 // - funzione per cambiare immagine quando clicco a sinistra
 document.getElementById('button-left').addEventListener("click", changePictureLeft);
 
+// - ogni 3 secondi la slide cambierà da sola
+const clock = setInterval(changePictureRight,3000);
+
 
 
 function changePictureRight() {
-    // if (currentIndex < images.length - 1) {
-    //     currentObject.classList.remove('active')
-    //     currentIndex += 1
-    //     currentObject = objectsDOMElement[currentIndex]
-    //     currentObject.classList.add('active')
-
-    // } else if (currentIndex === images.length - 1) {
-    //     currentObject.classList.remove('active')
-    //     currentIndex = 0
-    //     currentObject = objectsDOMElement[currentIndex]
-    //     currentObject.classList.add('active')
-    // }
-
     const objectsDOMElement = document.querySelectorAll('.carousel')
     let currentObject = objectsDOMElement[currentIndex];
     currentObject.classList.remove('active')
@@ -89,19 +79,6 @@ function changePictureRight() {
 
 
 function changePictureLeft() {
-    // if (currentIndex > 0) {
-    //     currentObject.classList.remove('active')
-    //     currentIndex -= 1
-    //     currentObject = objectsDOMElement[currentIndex]
-    //     currentObject.classList.add('active')
-
-    // } else if (currentIndex === 0) {
-    //     currentObject.classList.remove('active')
-    //     currentIndex = images.length -1
-    //     currentObject = objectsDOMElement[currentIndex]
-    //     currentObject.classList.add('active')
-    // }
-
     const objectsDOMElement = document.querySelectorAll('.carousel')
     let currentObject = objectsDOMElement[currentIndex];
     currentObject.classList.remove('active')
