@@ -38,6 +38,8 @@ for (let i = 0; i < images.length; i++) {
         <img src="${currentObject.image}" class=carousel__image>
         <div class=carousel__title>${currentObject.title}</div>
         <div class=carousel__text>${currentObject.text}</div>
+        <button id="button-up" class=" button button-left"><i class="fa-solid fa-chevron-left"></i></button>
+        <button id="button-down" class=" button button-right"><i class="fa-solid fa-chevron-right"></i></button>
      <div>
      `
 }
