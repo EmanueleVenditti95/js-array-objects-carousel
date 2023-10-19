@@ -58,6 +58,10 @@ document.getElementById('button-right').addEventListener("click", changePictureR
 // - funzione per cambiare immagine quando clicco a sinistra
 document.getElementById('button-left').addEventListener("click", changePictureLeft);
 
+// - ogni 3 secondi la slide cambierà da sola
+const clock = setInterval(changePictureRight,3000);
+
+
 
 function changePictureRight() {
     if (currentIndex < images.length - 1) {
