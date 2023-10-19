@@ -28,18 +28,70 @@ const images = [
 ];
 
 
-// creare un ciclo per stampare tutte le immagini nel DOM
+// - creare un ciclo per stampare tutte le immagini nel DOM
 for (let i = 0; i < images.length; i++) {
-    const currentObject = images[i]
+    const currentObject = images[i];
 
-    const carouselElement = document.getElementById('carousel-container')
+    const carouselElement = document.getElementById('carousel-container');
     carouselElement.innerHTML += `
-     <div class="carousel">
+     <div class="carousel invisible">
         <img src="${currentObject.image}" class=carousel__image>
         <div class=carousel__title>${currentObject.title}</div>
-        <div class=carousel__text>${currentObject.text}</div>
-        <button id="button-up" class=" button button-left"><i class="fa-solid fa-chevron-left"></i></button>
-        <button id="button-down" class=" button button-right"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class=carousel__text>${currentObject.text}</div> 
      <div>
      `
-}
+};
+
+// - variabile per selezionare tutti gli oggetti creati nel DOM
+const objectsDOMElement = document.querySelectorAll('.carousel')
+
+// - definire una variabile che seleziona l'oggetto del carosello corrente
+let currentIndex = 0;
+let currentObject = objectsDOMElement[currentIndex];
+
+// - aggiungere la classe active all'elemento corrente per renderlo visibile
+currentObject.classList.add('active');
+
+// - funzione per cambiare immagine quando clicco a destra
+document.getElementById('button-right').addEventListener("click", changePictureRight);
+
+// - funzione per cambiare immagine quando clicco a sinistra
+document.getElementById('button-left').addEventListener("click", changePictureLeft);
+
+
+function changePictureRight() {
+    if (currentIndex < images.length - 1) {
+        currentObject = objectsDOMElement[currentIndex]
+        currentObject.classList.remove('active')
+        currentIndex = currentIndex + 1
+        currentObject = objectsDOMElement[currentIndex]
+        currentObject.classList.add('active')
+
+
+    } else if (currentIndex === images.length - 1) {
+        currentObject = objectsDOMElement[currentIndex]
+        currentObject.classList.remove('active')
+        currentIndex = 0
+        currentObject = objectsDOMElement[currentIndex]
+        currentObject.classList.add('active')
+    }
+};   
+
+
+function changePictureLeft() {
+    if (currentIndex > 0) {
+        currentObject = objectsDOMElement[currentIndex]
+        currentObject.classList.remove('active')
+        currentIndex = currentIndex - 1
+        currentObject = objectsDOMElement[currentIndex]
+        currentObject.classList.add('active')
+
+
+    } else if (currentIndex === 0) {
+        currentObject = objectsDOMElement[currentIndex]
+        currentObject.classList.remove('active')
+        currentIndex = images.length -1
+        currentObject = objectsDOMElement[currentIndex]
+        currentObject.classList.add('active')
+    }
+};
