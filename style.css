@@ -94,3 +94,17 @@
     display: flex;
     justify-content: space-between;
 }
+
+.autoscroll-btn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(20, 20, 20, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.autoscroll-btn:hover {
+    background-color: black;
+}
