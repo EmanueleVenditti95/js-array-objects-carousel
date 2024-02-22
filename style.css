@@ -46,25 +46,33 @@
  }
 
  .button {
-    position: absolute;
-    background-color: rgba(248, 247, 247, 0.5);
-    border-radius: 50%;
-    padding: 0 7px;
+    position: absolute;   
+    padding: 10px;
+    border-radius: 3px;
     border: none;
     font-size: 25px;
     z-index: 1;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgba(20, 20, 20, 0.5);
+}
+
+.button-left,
+.button-right {
+    top: 50%;
+    transform: translate(0,-50%);
+    color: white;
 }
 
 .button-left {
     left: 10px;
-    top: 50%;
-    transform: translate(0,-50%);
 }
 
 .button-right {
     right: 10px;
-    top: 50%;
-    transform: translate(0,-50%);
 }
 
 .invisible {
@@ -73,4 +81,16 @@
 
 .active {
     display: inline-block;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.container-button {
+    display: flex;
+    justify-content: space-between;
 }

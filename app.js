@@ -71,6 +71,12 @@ document.getElementById('button-start').addEventListener("click", function(){
     document.getElementById('button-reverse').addEventListener("click", function(){
         clearInterval(clock);
      });
+     document.getElementById('button-right').addEventListener("click", function(){
+        clearInterval(clock);
+     });
+     document.getElementById('button-left').addEventListener("click", function(){
+        clearInterval(clock);
+     });
 })
 
 
@@ -83,6 +89,12 @@ document.getElementById('button-reverse').addEventListener("click", function(){
        clearInterval(clock);
     });
     document.getElementById('button-start').addEventListener("click", function(){
+        clearInterval(clock);
+     });
+     document.getElementById('button-right').addEventListener("click", function(){
+        clearInterval(clock);
+     });
+     document.getElementById('button-left').addEventListener("click", function(){
         clearInterval(clock);
      });
 });
