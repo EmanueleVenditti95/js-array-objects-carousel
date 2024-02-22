@@ -47,6 +47,7 @@ const objectsDOMElement = document.querySelectorAll('.carousel')
 
 // - definire una variabile che seleziona l'oggetto del carosello corrente
 let currentIndex = 0;
+console.log(currentIndex)
 let currentObject = objectsDOMElement[currentIndex];
 
 // - aggiungere la classe active all'elemento corrente per renderlo visibile
@@ -59,22 +60,36 @@ document.getElementById('button-right').addEventListener("click", changePictureR
 document.getElementById('button-left').addEventListener("click", changePictureLeft);
 
 
+document.getElementById('button-start').addEventListener("click", function(){
+    console.log('start');
+    let clock = setInterval(changePictureLeft,3000);
+    clearInterval(clock);
+    clock = setInterval(changePictureRight,3000);
+    document.getElementById('button-stop').addEventListener("click", function(){
+       clearInterval(clock);
+    });
+    document.getElementById('button-reverse').addEventListener("click", function(){
+        clearInterval(clock);
+     });
+})
+
+
+document.getElementById('button-reverse').addEventListener("click", function(){
+    console.log('reverse-start');
+    let clock = setInterval(changePictureRight,3000);
+    clearInterval(clock);
+    clock = setInterval(changePictureLeft,3000);
+    document.getElementById('button-stop').addEventListener("click", function(){
+       clearInterval(clock);
+    });
+    document.getElementById('button-start').addEventListener("click", function(){
+        clearInterval(clock);
+     });
+});
+
 
 function changePictureRight() {
-    // if (currentIndex < images.length - 1) {
-    //     currentObject.classList.remove('active')
-    //     currentIndex += 1
-    //     currentObject = objectsDOMElement[currentIndex]
-    //     currentObject.classList.add('active')
 
-    // } else if (currentIndex === images.length - 1) {
-    //     currentObject.classList.remove('active')
-    //     currentIndex = 0
-    //     currentObject = objectsDOMElement[currentIndex]
-    //     currentObject.classList.add('active')
-    // }
-
-    const objectsDOMElement = document.querySelectorAll('.carousel')
     let currentObject = objectsDOMElement[currentIndex];
     currentObject.classList.remove('active')
     currentIndex ++
@@ -89,20 +104,7 @@ function changePictureRight() {
 
 
 function changePictureLeft() {
-    // if (currentIndex > 0) {
-    //     currentObject.classList.remove('active')
-    //     currentIndex -= 1
-    //     currentObject = objectsDOMElement[currentIndex]
-    //     currentObject.classList.add('active')
 
-    // } else if (currentIndex === 0) {
-    //     currentObject.classList.remove('active')
-    //     currentIndex = images.length -1
-    //     currentObject = objectsDOMElement[currentIndex]
-    //     currentObject.classList.add('active')
-    // }
-
-    const objectsDOMElement = document.querySelectorAll('.carousel')
     let currentObject = objectsDOMElement[currentIndex];
     currentObject.classList.remove('active')
     currentIndex --
